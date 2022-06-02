@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+
+
+    <link rel="stylesheet" href = "/css/home1_living.css">
+</head>
+<body>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./images/smart-home.png">
+                    <h2>Smart <span class="danger">Home</span></h2>
+                </div>
+                <!-- to evala an theloume na einai responsive -->
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="user.html" class="active">
+                    <span class="material-icons-sharp">house</span>
+                    <h3>Homes</h3>
+                </a>
+                <a href="new_house.html">
+                    <span class="material-icons-sharp">add</span>
+                    <h3>Add New House</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                        settings
+                        </span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+    <!-- ===========END OF ASIDE ===== -->
+    <main>
+        <div class="top">
+            <a href="home1_living.html" class="active">
+                <span class="material-icons-sharp">chair</span>
+                <h3>LIVING ROOM</h3>
+            </a>
+            <a href="home1_kitchen.html" >
+                <span class="material-icons-sharp">kitchen</span>
+                <h3>KITCHEN</h3>
+            </a>
+            <a href="home1_bedroom1.html" >
+                <span class="material-icons-sharp">bed</span>
+                <h3>BEDROOM_1</h3>
+            </a>
+            <a href="home1_bedroom2.html" >
+                <span class="material-icons-sharp">bed</span>
+                <h3>BEDROOM_2</h3>
+            </a>
+        </div>
+        <div class="middle">
+            {{#each devices}}
+            {{#if lamp}}
+            <div class="lamp1">
+                <div class="middle_top">
+                    <span class="material-icons-sharp">light</span>
+                    <h3>{{username}}</h3>
+                    <div class="top_right">
+                        <label class="toggle">
+                            <span class="onoff">{{state}}</span>
+                            <input type="checkbox"/>
+                            <span class="slider1 round"></span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="slider">
+                    <span class="material-icons-sharp">wb_sunny</span>
+                    <input type="range" name="" id="range" value="{{brint}}">
+                    <span class="material-icons-sharp">wb_sunny</span>
+                </div>
+                <div class="bottom">
+                    <h3>Color selection</h3>
+                    <div class="colors_grid">
+                        {{#if white}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                            <input type="radio" name="color"  id="white">
+                            <span class="material-icons-sharp">done</span>
+                            <label for="white">
+                                <svg>
+                                    <circle cx='25' cy='25' r='20' class="white_circle"></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        {{#if orange}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                        {{!-- <div class="color"> --}}
+                            <input type="radio" name="color" id="orange">
+                            <span class="material-icons-sharp">done</span>
+                            
+                            <label for="orange">
+                                <svg>
+                                    <circle cx='25' cy='25' r='20'class="orange_circle" ></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        {{#if black}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                        {{!-- <div class="color"> --}}
+                            <input type="radio" name="color" id="black">
+                            <span class="material-icons-sharp">done</span>
+                            <label for="black" >
+                                <svg>
+                                    <circle cx='25' cy='25' r='20'class="black_circle" ></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        {{#if blue}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                        {{!-- <div class="color"> --}}
+                            <input type="radio" name="color"  id="blue" >
+                            <span class="material-icons-sharp">done</span>
+                            <label for="blue" >
+                                <svg>
+                                    <circle cx='25' cy='25' r='20'class="blue_circle" ></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        {{#if purple}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                        {{!-- <div class="color"> --}}
+                            <input type="radio" name="color"  id="purple">
+                            <span class="material-icons-sharp">done</span>
+                            <label for="purple" >
+                                <svg>
+                                    <circle cx='25' cy='25' r='20'class="purple_circle" ></circle>
+                                </svg>
+                            </label>
+                        </div>
+                        {{#if red}}
+                            <div class="color active">
+                        {{else}}
+                             <div class="color">
+                        {{/if}}
+                        {{!-- <div class="color"> --}}
+                            <input type="radio" name="color"  id="red">
+                            <span class="material-icons-sharp">done</span>
+                            <label for="red" >
+                                <svg>
+                                    <circle cx='25' cy='25' r='20'class="red_circle" ></circle>
+                                </svg>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {{else}}
+            <div class="socket1">
+                <div class="middle_top">
+                    <span class="material-icons-sharp">outlet</span>
+                    <h3>{{username}}</h3>
+                    <div class="top_right">
+                        <label class="toggle">
+                            <span class="onoff">{{state}}</span>
+                            <input type="checkbox"/>
+                            <span class="slider1 round"></span>
+                        </label>
+                    </div>
+                </div>
+            
+            </div>
+            {{/if}}
+        
+        {{/each}}
+        
+        <div class="add_device">
+            <div data-add-target="#selected-box" class="middle_icon">
+                <button data-add-target="#selected-box" class="open-add"></button>
+                <span class="material-icons-sharp">add</span>
+                <h3>Add Device</h3>
+            </div>            
+        </div>
+
+        <div class="selected-box" id="selected-box">
+            <button data-close-button class="close-button">&times;</button>
+            <div class="options-container ">
+                
+                <div class="option">
+                    <input type="radio"
+                    class="radio"
+                    id="Socket"
+                    name="devices"/>
+                    <label for="Socket">Socket </label>
+                    <span class="material-icons-sharp">outlet</span>
+                </div>
+                <div class="option">
+                    <input type="radio"
+                    class="radio"
+                    id="Lamp"
+                    name="devices"/>
+                    <label for="Lamp">Lamp </label>
+                    <span class="material-icons-sharp">light</span>
+                </div>
+            </div>
+            <div class="selected">Επιλέξτε Συσκευή</div>
+            <div class="id-entry">
+                
+                <h3>Device Id</h3>
+                <form name="myForm">
+                    <input type="text" placeholder="Id..." />
+                    <input type="submit" value ="Enter"/>
+                </form>
+                <!-- <input type="text" placeholder="Id..." />
+                <button class="submit">Enter</button> -->
+            </div>
+        </div>
+        <div id="overlay"></div>
+
+
+        </div> 
+    </div>
+    </main>
+    <script src="/js/toggle.js"></script>
+        
+    </body>
+</html>
