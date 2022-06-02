@@ -4,10 +4,15 @@ const toggle =document.querySelectorAll('.toggle input')
 
 
 for(let i = 0; i < toggle.length; i++){
+    if(toggle[i].parentNode.querySelector('.onoff').textContent === "ON" ){
+        toggle[i].checked=1
+    }
+
     toggle[i].addEventListener('click',()=>{
         const onOff=toggle[i].parentNode.querySelector('.onoff')
-    
+        
         onOff.textContent=toggle[i].checked ? 'ΟΝ':'OFF'
+        
     })
 }
 
@@ -206,20 +211,32 @@ function createDiv(){
 
 
 
-const allColors=document.querySelectorAll('div .color');
+const clr_gr=document.querySelectorAll('.colors_grid');
+
+const clr_gr_ids=[]
+clr_gr.forEach(gr=>{
+    console.log(`.colors_grid #`+`${gr.id}`)
+    clr_gr_ids.push(document.querySelector(`.colors_grid#`+`${gr.id.toString()}`))
 
 
-allColors.forEach(lab=>{
-    lab.addEventListener("click",()=>{
-        const selec=document.querySelectorAll('.color.active');
-        selec[0].setAttribute("class","color");
-        lab.setAttribute("class","color active");
-    })
 })
 
 
-// const sldr=document.querySelectorAll('.slider input[type="range"]');
-// console.log(sldr.value)
+console.log(clr_gr_ids)
+console.log(clr_gr_ids.length)
+for(let i=0;i<clr_gr_ids.length;i++){
+    colors=clr_gr_ids[i].querySelectorAll('div .color');
+    console.log(colors)
+    colors.forEach(clr=>{
+                clr.addEventListener("mousedown",()=>{
+                    let selec=clr_gr_ids[i].querySelector('.color.active');
+                    console.log(selec)
+                    selec.setAttribute("class","color");
+                    clr.setAttribute("class","color active");
+            })
+        })
+}
+
 const sldr=document.querySelectorAll('#range');
 
 
@@ -230,9 +247,6 @@ sldr.forEach(sld=>{
 })
 
 
-
-// var slider1 = $("#range").val();
-// console.log(slider1)
 
 
 
