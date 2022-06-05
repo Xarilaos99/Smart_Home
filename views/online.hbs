@@ -1,20 +1,24 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    {{!-- <meta http-equiv="X-UA-Compatible" content="IE=edge"> --}}
-    {{!-- <meta name="viewport" content="width=, initial-scale=1.0"> --}}
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Document</title>
     <!-- material icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
 
-    <link rel="stylesheet" href = "/css/user.css">
+
+    <link rel="stylesheet" href="/css/online.css">
 </head>
+
 <body>
     <div class="container">
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="./images/img3.jpg">
+                    <img src="./images/smart-home.png">
                     <h2>Smart <span class="danger">Home</span></h2>
                 </div>
                 <!-- to evala an theloume na einai responsive -->
@@ -23,21 +27,21 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="/" class="active">
+                <a href="/admin">
                     <span class="material-icons-sharp">house</span>
                     <h3>Homes</h3>
-                 </a>
-                <a href="new_house.html">
-                    <span class="material-icons-sharp">add</span>
-                    <h3>Add New House</h3>
                 </a>
-                <a href="#">
+                <a href="/online" class="active">
+                    <span class="material-icons-sharp">group</span>
+                    <h3>Online</h3>
+                </a>
+                <a href="/admin">
                     <span class="material-icons-sharp">
                         settings
-                        </span>
+                    </span>
                     <h3>Settings</h3>
                 </a>
-                <a href="/logout">
+                <a href="/logouot">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -45,23 +49,22 @@
         </aside>
 
         <!-----------------  END OF ASIDE ---------------->
+
         
         <main>
-            <h1>User</h1>
-            
-              {{#each devices}}    
+            <h1>Online Users</h1>
+            <canvas id="chart2"></canvas>
+        </main>
+        <main>
             <div class="insights">
-
-                <div class="home1" id="home1" onclick="location.href='/home_living/{{id_home}}'" style ="cursor:pointer;">
-                  
-                    
+                <div class="home1">
                     <div class="top">
                         <span class="material-icons-sharp">home</span>
-                        <h3>{{Home_name}}</h3>
+                        <h3>Online Users</h3>
                     </div>
                     <div class="middle">
                         <div class="left">
-                            <h3>Κατανάλωση</h3>
+                            <h3>Daily Peak</h3>
                         </div>
                         <div class="progress">
                             <svg>
@@ -69,7 +72,7 @@
                             </svg>
                             <div class="number">
                                 <p>
-                                    {{Kw}}kw
+                                    30
                                 </p>
                             </div>
                         </div>
@@ -79,9 +82,32 @@
                     </small>
                 </div>
             </div>
-            {{/each}}
-        </main>
-        
+                <div class="insights">
+                    <div class="home2">
+                        <div class="top">
+                            <span class="material-icons-sharp">home</span>
+                            <h3>Online Users</h3>
+                        </div>
+                        <div class="middle">
+                            <div class="left">
+                                <h3>Daily Low</h3>
+                            </div>
+                            <div class="progress">
+                                <svg>
+                                    <circle cx='38' cy='38' r='36'></circle>
+                                </svg>
+                                <div class="number">
+                                    <p>
+                                        3
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <small class="text-muted">
+                            The Last 24 Hours
+                        </small>
+                    </div>
+            </main>
         <!-----------------  END OF ASIDE ---------------->
         <div class="right">
             <div class="top">
@@ -91,6 +117,10 @@
             </div>
         </div>
     </div>
-    <script src="/js/admin.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+        integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/online.js"></script>
 </body>
+
 </html>

@@ -1,19 +1,26 @@
 
 // on off state
-const toggle =document.querySelectorAll('.toggle input')
+const toggle =document.querySelectorAll('.toggle input[type="checkbox"]')
 
-
+console.log(toggle)
 for(let i = 0; i < toggle.length; i++){
-    if(toggle[i].parentNode.querySelector('.onoff').textContent === "ON" ){
+    // console.log("============================================================")
+    // console.log(toggle[i])
+    // console.log(toggle[i].parentNode.querySelector('.onoff').textContent)
+    // console.log(toggle[i].checked)
+    // console.log(toggle[i].parentNode.querySelector('.onoff').textContent == "OFF" )
+    console.log(toggle[i])
+    if(toggle[i].parentNode.querySelector('.onoff').textContent == "ON" ){
+        // console.log(toggle[i].parentNode.querySelector('.onoff').textContent == "ON" )
         toggle[i].checked=1
+        // console.log(toggle[i].checked)
     }
 
-    toggle[i].addEventListener('click',()=>{
-        const onOff=toggle[i].parentNode.querySelector('.onoff')
+    // toggle[i].addEventListener('click',()=>{
+    //     const onOff=toggle[i].parentNode.querySelector('.onoff')
         
-        onOff.textContent=toggle[i].checked ? 'ΟΝ':'OFF'
-        
-    })
+    //     onOff.textContent=toggle[i].checked ? 'ΟΝ':'OFF'
+    // })
 }
 
 
@@ -222,17 +229,35 @@ clr_gr.forEach(gr=>{
 })
 
 
-console.log(clr_gr_ids)
-console.log(clr_gr_ids.length)
 for(let i=0;i<clr_gr_ids.length;i++){
     colors=clr_gr_ids[i].querySelectorAll('div .color');
     console.log(colors)
     colors.forEach(clr=>{
                 clr.addEventListener("mousedown",()=>{
                     let selec=clr_gr_ids[i].querySelector('.color.active');
-                    console.log(selec)
+                    
+                    clr.childNodes[1].setAttribute("name",`${clr.childNodes[1].id}`)
+
                     selec.setAttribute("class","color");
                     clr.setAttribute("class","color active");
+
+
+                    let sub_btn=clr_gr_ids[i].querySelector('button');
+                    console.log(sub_btn)
+                    console.log("tmep")
+                    sub_btn.style.display="inline"
+                    sub_btn.style.background="#ff7782";
+                    sub_btn.style.fontSize= "1.2rem";
+;
+                    sub_btn.style.width= "6rem"
+                    sub_btn.style.height= "2rem"
+          
+                    sub_btn.style.borderRadius= "10px";
+                    sub_btn.style.paddingLeft= "4px";
+
+                    sub_btn.style.cursor= "pointer";
+                    sub_btn.style.fontWeight="bold"
+
             })
         })
 }
@@ -242,10 +267,25 @@ const sldr=document.querySelectorAll('#range');
 
 sldr.forEach(sld=>{
     sld.addEventListener("click",()=>{
+        let btn=sld.nextElementSibling
+
+        btn.style.display="flex"
+        btn.style.background="#ff7782";
+        btn.style.fontSize= "1.2rem";
+
+        btn.style.width= "6rem"
+        btn.style.height= "2rem"
+
+        btn.style.borderRadius= "10px";
+        btn.style.paddingLeft= "8px";
+        btn.style.paddingTop= "3.5px";
+
+        btn.style.cursor= "pointer";
+        btn.style.fontWeight="bold"
+    
         console.log(sld.value)
     })
 })
-
 
 
 

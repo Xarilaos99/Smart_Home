@@ -26,7 +26,7 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="user.html" class="active">
+                <a href="/" class="active">
                     <span class="material-icons-sharp">house</span>
                     <h3>Homes</h3>
                 </a>
@@ -40,7 +40,7 @@
                         </span>
                     <h3>Settings</h3>
                 </a>
-                <a href="#">
+                <a href="/logout">
                     <span class="material-icons-sharp">logout</span>
                     <h3>Logout</h3>
                 </a>
@@ -49,19 +49,36 @@
     <!-- ===========END OF ASIDE ===== -->
     <main>
         <div class="top">
-            <a href="home1_living.html" class="active">
+            {{#if living_room}}
+                <a href="/home_living/living_room/{{home}}" class="active">
+            {{else}}
+                <a href="/home_living/living_room/{{home}}">
+            {{/if}}
                 <span class="material-icons-sharp">chair</span>
                 <h3>LIVING ROOM</h3>
             </a>
-            <a href="home1_kitchen.html" >
+            {{#if kitchen}}
+                 <a href="/home_living/kitchen/{{home}}" class="active">
+            {{else}}
+                 <a href="/home_living/kitchen/{{home}}" >
+            {{/if}}
+           
                 <span class="material-icons-sharp">kitchen</span>
                 <h3>KITCHEN</h3>
             </a>
-            <a href="home1_bedroom1.html" >
+            {{#if bedroom1}}
+                 <a href="/home_living/bedroom1/{{home}}" class="active">
+            {{else}}
+                 <a href="/home_living/bedroom1/{{home}}" >
+            {{/if}}
                 <span class="material-icons-sharp">bed</span>
                 <h3>BEDROOM_1</h3>
             </a>
-            <a href="home1_bedroom2.html" >
+            {{#if bedroom2}}
+                 <a href="/home_living/bedroom2/{{home}}" class="active">
+            {{else}}
+                 <a href="/home_living/bedroom2/{{home}}" >
+            {{/if}}
                 <span class="material-icons-sharp">bed</span>
                 <h3>BEDROOM_2</h3>
             </a>
@@ -70,13 +87,14 @@
             {{#each devices}}
             {{#if lamp}}
             <div class="lamp1">
+                <form action="/lamp/submit" method="post">
                 <div class="middle_top">
                     <span class="material-icons-sharp">light</span>
                     <h3>{{username}}</h3>
                     <div class="top_right">
                         <label class="toggle">
                             <span class="onoff">{{state}}</span>
-                            <input type="checkbox"/>
+                            <input type="submit" name={{state}} />
                             <span class="slider1 round"></span>
                         </label>
                     </div>
@@ -84,12 +102,15 @@
                 
                 <div class="slider">
                     <span class="material-icons-sharp">wb_sunny</span>
-                    <input type="range" name="" id="range" value="{{brint}}">
+                    <input type="range" name="rang" id="range" value="{{brint}}">
+                    <button type="submit">Επιλογή</button>
                     <span class="material-icons-sharp">wb_sunny</span>
                 </div>
+                </form>
                 <div class="bottom">
+                    <form action="/lamp/color" method="post">
                     <h3>Color selection</h3>
-                    <div class="colors_grid">
+                    <div class="colors_grid " id='color{{id}}'>
                         {{#if white}}
                             <div class="color active">
                         {{else}}
@@ -174,24 +195,33 @@
                                 </svg>
                             </label>
                         </div>
+                        <button type="submit">Επιλογή</button>
+                        
                     </div>
+                    </form>
                 </div>
+                
             </div>
             {{else}}
+            
             <div class="socket1">
+                <form action="/sock/submit/{{home}}/" method="post">
                 <div class="middle_top">
                     <span class="material-icons-sharp">outlet</span>
                     <h3>{{username}}</h3>
                     <div class="top_right">
                         <label class="toggle">
-                            <span class="onoff">{{state}}</span>
-                            <input type="checkbox"/>
+                            <span class="onoff" >{{state}}</span>
+                            <input type="submit" name={{state}} />
+                            <input type="checkbox" name1={{state}} />
                             <span class="slider1 round"></span>
+                            
                         </label>
                     </div>
                 </div>
-            
+            </form>
             </div>
+           {{!-- <button type="submit"></button> --}}
             {{/if}}
         
         {{/each}}
@@ -229,19 +259,21 @@
             <div class="id-entry">
                 
                 <h3>Device Id</h3>
-                <form name="myForm">
-                    <input type="text" placeholder="Id..." />
-                    <input type="submit" value ="Enter"/>
+                <form name="myForm" action="/add-device" method="post">
+                <input type="text" name="tmep" placeholder="Id..." />
+                <input type="submit" value ="Enter"/>
                 </form>
+                
                 <!-- <input type="text" placeholder="Id..." />
                 <button class="submit">Enter</button> -->
             </div>
+
         </div>
+        
         <div id="overlay"></div>
 
 
         </div> 
-    </div>
     </main>
     <script src="/js/toggle.js"></script>
         

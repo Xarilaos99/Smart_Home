@@ -334,3 +334,14 @@ main .insights .progress .number{
     justify-content: center;
     align-items: center;
 }
+
+/* =============canvas========== */
+
+canvas#chart, canvas#chart2{
+    background-color: var(--color-white);
+    max-width: 100%;
+    margin-top: 2rem;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+
+}

@@ -9,7 +9,7 @@ const exphbs = require('express-handlebars');
 
   
 //Διαδρομές - Routse
-const ROUTES = require('./routes/weight-app-routes');
+const ROUTES = require('./routes/smart-home-routes');
 const app=ROUTES.app
 const io=ROUTES.io
 const http=ROUTES.http
@@ -19,7 +19,7 @@ app.use(express.static(__dirname + '/public'));
 
 //Using 'views'
 //Note: engine name must be the same as extname (hbs) otherwise the handlebars template engine will look for files ending in '.handlebars'
-app.engine('hbs',  exphbs({
+app.engine('hbs',  exphbs.engine({
     extname: '.hbs'
 }));
 
