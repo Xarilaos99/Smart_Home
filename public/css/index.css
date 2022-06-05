@@ -135,6 +135,10 @@ b{
 aside{
     height: 100vh;
     /* background: rgb(241, 1, 1); */
+    
+    position: fixed;
+    
+    
 
 }
 
@@ -227,35 +231,21 @@ aside .sidebar a:hover span{
     margin-left:1rem;
 }
 
-/* ============================RIGHT========================== */
+/* ============================main========================== */
 
-.right{
-    margin-top: 1.4rem;
-}
-.right .top{
-    display: flex;
-    justify-content: end;
-    gap: 2rem;
+.basic-page{
+    width: 85.6vw;
 }
 
-.right .top button{
-    display: none;
-}
-
-
-/* ======================main area============================ */
-
-main{
-    margin-top: 1.4rem;
-}
-
-main .insights{
+main .middle{
     display: grid;
-    grid-template-columns: repeat(3,1fr);
-    gap: 1.6rem;
+    margin-left: 10vw;
+
+    grid-template-rows: repeat(1,1fr);
+
 }
 
-main .insights>div{
+main .middle>div{
     background: var(--color-white);
     padding:  var(--card-padding);
     border-radius: var(--card-border-radius);
@@ -264,84 +254,185 @@ main .insights>div{
     transition: all 300ms ease;
 }
 
-main .insights>div:hover{
+main .middle>div:hover{
     box-shadow: none;
 }
 
-main .insights .top span{
-    background: var(--color-primary);
-    padding: 0.5rem;
-    border-radius: 50%;
-    color: var(--color-white);
-    font-size: 2rem;
-    grid-area: 1/1/2/2;
-}
 
-main .insights .top{
-    display: grid;
-    grid-template-columns: 0.1fr 1.5fr 1.5fr;
-}
 
-main .insights .top h3{
-    grid-area: 1/2/2/4;
-    justify-self: center; 
-    font-size: 1.5rem;
 
-}
 
-main .insights>div .middle{
-    display:flex;
-    align-items: center;
-    justify-content: space-between;
-
-}
-
-.middle h3{
-    margin: 1rem 0 0.6rem;
-    font-size: 1.2rem;
-}
-
-main .insights .progress{
+.carousel {
+    width: 83.6vw;
+    height: 70vh;
     position: relative;
-    width:92px;
-    height: 92px;
-    border-radius: 50%;
+    top: 1.4rem;
+    border-radius: var(--card-border-radius);
 }
 
-
-main .insights svg{
-    /* background: red; */
-    width:7rem;
-    height:7rem;
+.carousel > ul{
+    padding: 0;
+    margin: 0;
 }
 
-main .insights svg circle {
-    fill:none;
-    stroke: var(--color-primary);
-    stroke-width: 14;
-    stroke-linecap: round;
-    transform: translate(5px,5px);
+.slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: 200ms opacity ease-in-out;
+    transition-delay: 200ms;
+}
+
+.slide > img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    
+    border-radius: var(--card-border-radius);
+
+}
+
+.slide[data-active]{
+    opacity: 1;
+    transition-delay: 0ms;
+}
+
+.carousel-button{
+    position: absolute;
+    z-index: 1;
+    background: none;
+    border: none;
+    font-size: 4rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    border-radius: .25rem;
+    padding: 0 0.5rem;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.carousel-button:focus,
+.carousel-button:hover{
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.carousel-button:focus{
+    outline: 1px solid black;
+}
+
+.carousel-button.next{
+    right: 1rem;
+}
+
+.carousel-button.prev{
+    left: 1rem;
+}
+/* ------------------------------------------ */
+.infos{
+    position: relative;
+    top:1.4rem;
+    background-color:var(--color-background);
+    border-bottom: solid ;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    border-top: solid ;
+    
+    border-radius: var(--card-border-radius);
+}
+
+.infos > img {
+    display: block;
+    width: 60vw;
+    height: 20vw;
+    object-fit: cover;
+    object-position: center;
+    
+    border-radius: var(--card-border-radius);
+}
+
+.infos > p {
+    font-size: 1.8rem;
+    margin-top: 10px;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-align: justify;
+    letter-spacing: 1px;
+    color: #0e1b2df0  ;
+
+}
+
+.infos2{
+    position: relative;
+    top:1.4rem;
+    background-color:var(--color-background);
+    border-bottom: solid ;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    
+    border-radius: var(--card-border-radius);
+
+}
+
+.infos2 > img {
+    display: block;
+    width: 40vw;
+    height: 20vw;
+    object-fit: cover;
+    object-position: center;
+    
+    /* margin-top: 5px; */
+    
+    border-radius: var(--card-border-radius);
+
     
 }
 
-main .insights .progress .number{
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
+.infos2 > p {
+    margin-left: 20px;
+    font-size: 1.8rem;
+    margin-right: 20px;
+    text-align: justify;
+    letter-spacing: 1px;
+    color: #0e1b2df0 ;
+
+}
+
+.infos3{
+    position: relative;
+    top:1.4rem;
+    background-color:var(--color-background);
+    border-bottom: solid;
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* =============canvas========== */
-
-canvas#chart, canvas#chart2{
-    background-color: var(--color-white);
-    max-width: 100%;
-    margin-top: 2rem;
+    flex-direction: row;
+    justify-content: start;
+    
     border-radius: var(--card-border-radius);
-    padding: var(--card-padding);
+    
+}
+
+.infos3 > img {
+    display: block;
+    width: 60vw;
+    height: 20vw;
+    object-fit: cover;
+    object-position: center;
+    
+    border-radius: var(--card-border-radius);
+    
+}
+
+.infos3 > p {
+    font-size: 1.8rem;
+    margin-left: 10px;
+
+    color: #0e1b2df0  ;
 
 }
+
+

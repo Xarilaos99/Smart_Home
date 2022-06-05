@@ -142,7 +142,7 @@ aside{
 }
 
 aside .top{
-    background: white;
+    /* background: white; */
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -520,8 +520,8 @@ input:checked + .slider1:before{
     stroke-opacity: 0.6;
 }
 
- .black_circle{
-    fill: black;
+ .yellow_circle{
+    fill: yellow;
     stroke: black ;
     stroke-width:0.2rem;
 }
