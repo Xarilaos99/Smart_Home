@@ -305,38 +305,4 @@ exports.AddUser=(pool,req,callback)=>{
 
 
 
-//1 gets the device state from database and returns the rows 
-// exports.getDevicesData=function(pool,callback){
-//     console.log('getting data')
-//     var quer=
-//     ` select device_id,is_on,sample_rate,mode from public.device order by device_id ASC;`;
-    
-//     ;(async function() {
-//         const client = await pool.connect()
-//         await client.query(quer,(err,res)=>{
-//             if(!err){
-            
-//            console.log(res.rows)
-//             var data={
-//                 devices:res.rows
-//             }
-//             var devices=JSON.parse(JSON.stringify(data))
 
-//             callback(null, devices)
-//             client.end()
-            
-//             }
-//             else{
-
-//             console.log(err.message);
-//             callback(err, null)
-            
-
-//             }
-//             console.log('hello')
-//             })
-//         client.release()
-//         return
-//     })()
-
-// }
