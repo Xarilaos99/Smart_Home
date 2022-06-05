@@ -116,11 +116,13 @@ router.get('/admin',(req,res)=>{
   let a
   if(req.session.admin==true){
        a={admin:1}
+       res.render('admin',a)
   }
   else{
     a={}
+    res.redirect('/login')
   }
-  res.render('admin',a)
+ 
   
 })
 

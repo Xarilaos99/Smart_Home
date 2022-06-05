@@ -123,37 +123,79 @@ exports.get_home_living=function(pool,id,callback){
 
 
 
-exports.get_room=function(id,room,callback){
-    var devices={room:room,devices:{
-        0:{
-            id:0,
-            lamp:0,
-            socket:1,
-            username:'Socket1',
-            state:"OFF",
-            brint:0,
-            color:0
-            },
-            1:{
-                id:1,
-                lamp:1,
-                socket:0,
-                username:'Lamp1',
-                state:"ON",
-                brint:100,
-                color:"orange"}
-            ,
-            2:{
-                id:2,
-                lamp:1,
-                socket:0,
-                username:'Lamp2',
-                state:"ON",
-                brint:50,
-                color:"white"}
-            }}
-            var devices=JSON.parse(JSON.stringify(devices))
-            callback(null, devices)
+exports.get_room=function(pool,id,room,callback){
+
+    if(room=="living_room"){
+        room="Living Room"
+    }
+    console.log(id,room)
+
+    var quer=`  select id_device,u.name,"state","color","brightness","Time"
+    from(
+    select "name", max("Time") as max_time from "USERSDEVIS"
+    where id_home='${id}' AND room='${room}'
+    group by "name") s join "USERSDEVIS" u
+    on s.name=u.name AND s.max_time = u."Time"
+    `;
+(async function() {
+    const client = await pool.connect()
+    await client.query(quer,(err,res)=>{
+        if(!err){
+        
+       console.log(res.rows)
+        var data={
+            
+            devices:res.rows
+        }
+        console.log("temp",data)
+        var devices=JSON.parse(JSON.stringify(data))
+
+        callback(null, devices)
+        client.end()
+        
+        }
+        else{
+
+        console.log(err.message);
+        callback(err, null)
+        
+
+        }
+        console.log('hello')
+        })
+    client.release()
+    return
+})()
+    // var devices={room:room,devices:{
+    //     0:{
+    //         id:0,
+    //         lamp:0,
+    //         socket:1,
+    //         username:'Socket1',
+    //         state:"OFF",
+    //         brint:0,
+    //         color:0
+    //         },
+    //         1:{
+    //             id:1,
+    //             lamp:1,
+    //             socket:0,
+    //             username:'Lamp1',
+    //             state:"ON",
+    //             brint:100,
+    //             color:"orange"}
+    //         ,
+    //         2:{
+    //             id:2,
+    //             lamp:1,
+    //             socket:0,
+    //             username:'Lamp2',
+    //             state:"ON",
+    //             brint:50,
+    //             color:"white"}
+    //         }}
+    //         var devices=JSON.parse(JSON.stringify(devices))
+    //         callback(null, devices)
         
     }
 

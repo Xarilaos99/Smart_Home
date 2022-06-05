@@ -1,92 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Smart Home</title>
-    <link rel="stylesheet" href="css/index2.css">
-    <script src="js/index.js" defer></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
-    </style> 
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+    
+    <script src="/js/index.js" defer></script>
+
+    <link rel="stylesheet" href = "/css/index.css">
 </head>
-
-
 <body>
-    <div class="upside">
-        <h2>Smart <span class="danger">Home</span></h2>
-        <img src="/images/smart-home.png" alt="Logo">
-
-        <ul class="navbar">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#infos">About</a></li>
-            <li><a href="#">Contact</a></li>
-            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-        </ul>
-    </div>
-
-    <div class="basic-page">
-        <div class="photo-menu">
-            <section aria-label="Smart Home Photos ">
-                <div class="carousel" data-carousel>
-                    <button class="carousel-button prev" data-carousel-button="prev">&#171;</button>
-                    <button class="carousel-button next" data-carousel-button="next">&#187;</button>
-                    <ul data-slides>
-                        <li class="slide" data-active>
-                            <img src="/images/img3.jpg" alt="Smart Home Image 1">
-                        </li>
-                    <li class="slide">
-                        <img src="/images/img2.jpg" alt="Smart Home Image 2">
-                    </li>
-                    <li class="slide">
-                        <img src="/images/img1.jpg" alt="Smart Home Image 3">
-                    </li>
-                    </ul>
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./images/smart-home.png">
+                    <h2>Smart <span class="danger">Home</span></h2>
                 </div>
-            </section>
+                <!-- to evala an theloume na einai responsive -->
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="#" class="active">
+                    <span class="material-icons-sharp">house</span>
+                    <h3>Home</h3>
+                </a>
+                <a href="#infos" >
+                    <span class="material-icons-sharp">info</span>
+                    <h3>About</h3>
+                </a>
+                <a href="#">
+                    <span class="material-icons-sharp">
+                            contact_support
+                        </span>
+                    <h3>Contact</h3>
+                </a>
+                <a href="/login" >
+                    <span class="material-icons-sharp">login</span>
+                    <h3>Login</h3>
+                </a>
+                <a href="/register" >
+                    <span class="material-icons-sharp">group</span>
+                    <h3>SignUp</h3>
+                </a>
+                <a href="#" >
+                    <h3></h3>
+                </a>
+            </div>
+        </aside>
+
+        <!-----------------  END OF ASIDE ---------------->
+        <main>
+        <div class="middle">
+
             
-        </div>
-        <div class="infos" id="infos">
-            <img src="/images/img2.jpg" alt="text photo">
-           
-            <p>Smart home is a residence that uses internet-connected devices to enable the remote monitoring and management of appliances and systems, such as lighting and heating.
-            It is also referred to as home automation that provides homeowners security, comfort, convenience and energy efficiency by allowing them to control smart devices, often by a smart home app on their smartphone or other networked device.
-            A part of the internet of things(IoT), smart home systems and devices often operate together, sharing consumer usage data among themselves and automating actions based on the homeowners' preferences.
-            </p>
-        </div>
-        <div class="infos2">
-            <p><b> Some examples of smart home technologies include: </b>
+        <div class="basic-page">
+            <div class="photo-menu">
+                <section aria-label="Smart Home Photos ">
+                    <div class="carousel" data-carousel>
+                        <button class="carousel-button prev" data-carousel-button="prev">&#171;</button>
+                        <button class="carousel-button next" data-carousel-button="next">&#187;</button>
+                        <ul data-slides>
+                            <li class="slide" data-active>
+                                <img src="/images/img3.jpg" alt="Smart Home Image 1">
+                            </li>
+                        <li class="slide">
+                            <img src="/images/img2.jpg" alt="Smart Home Image 2">
+                        </li>
+                        <li class="slide">
+                            <img src="/images/img1.jpg" alt="Smart Home Image 3">
+                        </li>
+                        </ul>
+                    </div>
+                </section>
                 
-                Smart TVs that can connect to the internet to access content through applications, such as on-demand video and music. Some smart TVs also include voice or gesture recognition.          
-                Smart Lightbulbs which can regulate themselves based on daylight availability and also can be controlled remotely and customized, smart lighting systems, such as Hue from Philips Lighting Holding B.V., can detect when occupants are in the room and adjust lighting as needed.
-                Smart thermostats, come with integrated Wi-Fi, allowing users to schedule, monitor and remotely control home temperatures. These devices also learn homeowners' behaviors and automatically modify settings to provide residents with maximum comfort and efficiency. Smart thermostats can also report energy use and remind users to change filters, among other things.
-                Smart security cameras, residents can monitor their homes when they are away or on vacation.
-                Smart motion sensors are also able to identify the difference between residents, visitors, pets and burglars, and can notify authorities if suspicious behavior is detected.
-                With  smart locks and garage-door openers, users can grant or deny access to visitors. Smart locks can also detect when residents are near and unlock the doors for them.
-                Kitchen appliances of all sorts are available, including smart coffee makers that can brew a fresh cup automatically at a programmed time. Smart refrigerators that keep track of expiration dates, make shopping lists or even create recipes based on ingredients currently on hand slower cookers and toasters and lastly the laundry room, washing machines and dryers.
-            </p>
-            <img src="/images/img4.jpg" alt="text photo">
+            </div>
+            <div class="infos" id="infos">
+                <img src="/images/img2.jpg" alt="text photo">
+               
+                <p>Smart home is a residence that uses internet-connected devices to enable the remote monitoring and management of appliances and systems, such as lighting and heating.
+                It is also referred to as home automation that provides homeowners security, comfort, convenience and energy efficiency by allowing them to control smart devices, often by a smart home app on their smartphone or other networked device.
+                A part of the internet of things(IoT), smart home systems and devices often operate together, sharing consumer usage data among themselves and automating actions based on the homeowners' preferences.
+                </p>
+            </div>
+            <div class="infos2">
+                <p><b> Some examples of smart home technologies include: </b>
+                    
+                    Smart TVs that can connect to the internet to access content through applications, such as on-demand video and music. Some smart TVs also include voice or gesture recognition.          
+                    Smart Lightbulbs which can regulate themselves based on daylight availability and also can be controlled remotely and customized, smart lighting systems, such as Hue from Philips Lighting Holding B.V., can detect when occupants are in the room and adjust lighting as needed.
+                    Smart thermostats, come with integrated Wi-Fi, allowing users to schedule, monitor and remotely control home temperatures. These devices also learn homeowners' behaviors and automatically modify settings to provide residents with maximum comfort and efficiency. Smart thermostats can also report energy use and remind users to change filters, among other things.
+                    Smart security cameras, residents can monitor their homes when they are away or on vacation.
+                    Smart motion sensors are also able to identify the difference between residents, visitors, pets and burglars, and can notify authorities if suspicious behavior is detected.
+                    With  smart locks and garage-door openers, users can grant or deny access to visitors. Smart locks can also detect when residents are near and unlock the doors for them.
+                    Kitchen appliances of all sorts are available, including smart coffee makers that can brew a fresh cup automatically at a programmed time. Smart refrigerators that keep track of expiration dates, make shopping lists or even create recipes based on ingredients currently on hand slower cookers and toasters and lastly the laundry room, washing machines and dryers.
+                </p>
+                <img src="/images/img4.jpg" alt="text photo">
+            </div>
+            <div class="infos3">
+                <img src="/images/img1.jpg" alt="text photo">
+                <p>Here at Smart Home we provide you with the necessary tools to start utilizing your Home to it's full potential. Our service allows you to customize your smart home and it's technologies however you like quick and easy with a few clicks from anywhere. To Get started simply sign up with an account and start using your Home in a Smart way.  </p>
+            </div>
         </div>
-        <div class="infos3">
-            <img src="/images/img1.jpg" alt="text photo">
-            <p>Here at MyHome we provide you with the necessary tools to start utilizing your Smart Home to it's full potential. Our service allows you to customize your smart home and it's technologies however you like quick and easy with a few clicks from anywhere. To Get started simply sign up with an account and start using your Home in a Smart way.  </p>
         </div>
-    </div>
+        </main>
 
-
-    <div class="footer-basic">
-        <footer>
-            <ul class="list-inline">
-                <li class="list-inline-item"><a href="#">Home</a></li>
-                <li class="list-inline-item"><a href="#">About</a></li>
-                <li class="list-inline-item"><a href="#">Terms</a></li>
-                <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-            </ul>
-            <p class="copyright">Smart Home © 2022</p>
-        </footer>
 </body>
-
 </html>

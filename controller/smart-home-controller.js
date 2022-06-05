@@ -141,54 +141,76 @@ exports.home_living=(request,response)=>{
 }
 
 exports.room=(request,response)=>{
-    console.log(request.params.id)
-    console.log(request.params.room)
 
-    model.get_room(request.params.id,request.params.room,(err,devices)=>{
+
+    const pool1 = new Pool({
+        connectionString: isProduction ? process.env.DATABASE_URL : connectionString,
+        ssl: {
+            rejectUnauthorized: false,
+        },
+    });
+    // console.log(request.params.id)
+    // console.log(request.params.id)
+    // console.log(request.params.room)
+
+    model.get_room(pool1,request.params.id,request.params.room,(err,devices)=>{
        
         if (err) {
             response.send(err);
         }
         console.log("amee ",devices)
+        console.log("amee ",devices.devices.length)
         // var sizeof = require('object-sizeof');
         var devs=[]
-        // console.log(devices.devices[0].lamp)
-        // console.log(Object.keys(devices.devices).length)
-        for(let i=0;i<Object.keys(devices.devices).length;i++){
+
+        for(let i=0;i<devices.devices.length;i++){
             let device_add
+           
+            // console.log("=====================================")
+            // console.log(devices.devices.length)
+            // console.log(devices.devices[i])
+            if(devices.devices[i].state===0){
+                var temp="OFF"
+            }
+            else{
+                var temp="ON"
+            }
             // console.log(devices.devices[i].lamp)
-            if(devices.devices[i].lamp===1){
+            if(devices.devices[i].id_device===1){
+                
                 let color=devices.devices[i].color.toString()
-                device_add={"id" : devices.devices[i].id,
-                            "lamp" : devices.devices[i].lamp,
-                            "username":  devices.devices[i].username,
-                            "state":devices.devices[i].state,
-                            "brint":devices.devices[i].brint};
+                device_add={"id" : devices.devices[i].id_device,
+                            "lamp" : 1,
+                            "username":  devices.devices[i].name,
+                            "state":temp,
+                            "brint":devices.devices[i].brightness};
 
                 device_add[devices.devices[i].color]=1;
+                device_add["home"]=request.params.id;
                 devs.push( device_add)
                 console.log(device_add)
             }
-            else if(devices.devices[i].socket===1){
+            else {
                 let device_add
-                device_add={"id" : devices.devices[i].id,
-                            "socket" : devices.devices[i].lamp,
-                            "username":  devices.devices[i].username,
-                            "state":devices.devices[i].state};
+                device_add={"id" : devices.devices[i].id_device,
+                            "socket" : 1,
+                            "username":  devices.devices[i].name,
+                            "state":temp};
+                
+                device_add["home"]=request.params.id;
+
 
                 devs.push( device_add)
             }
-
         }
-        console.log(devices.devices[1].color)
-        console.log(devs)
+
         let devs2={home:request.params.id,devices:devs}
         devs2[request.params.room]=1
-        // console.log(devs2)
+        // console.log("XYN",devs2)
         var data=JSON.parse(JSON.stringify(devs2))
-        console.log(data)
-        //renders the hbs file home_page and gives it the data for the page
-        response.render('home_living', data);
+        // //renders the hbs file home_page and gives it the data for the page
+        response.render(`home_living`, data);
+
     })
 }
 
@@ -356,6 +378,8 @@ exports.registerUser=(request,response)=>{
                         console.log('all nice')
                         response.send(err)
                     }
+
+                    
                     //if it exists redirects to /login
                    response.redirect('/login')
                    //response.send('all nice')

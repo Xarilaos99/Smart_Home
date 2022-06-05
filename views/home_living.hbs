@@ -17,7 +17,7 @@
         <aside>
             <div class="top">
                 <div class="logo">
-                    <img src="./images/smart-home.png">
+                    <img src="/images/smart-home.png">
                     <h2>Smart <span class="danger">Home</span></h2>
                 </div>
                 <!-- to evala an theloume na einai responsive -->
@@ -26,11 +26,11 @@
                 </div>
             </div>
             <div class="sidebar">
-                <a href="/" class="active">
+                <a href="/user_homes" class="active">
                     <span class="material-icons-sharp">house</span>
                     <h3>Homes</h3>
                 </a>
-                <a href="new_house.html">
+                <a href="#">
                     <span class="material-icons-sharp">add</span>
                     <h3>Add New House</h3>
                 </a>
@@ -139,17 +139,17 @@
                                 </svg>
                             </label>
                         </div>
-                        {{#if black}}
+                        {{#if yellow}}
                             <div class="color active">
                         {{else}}
                              <div class="color">
                         {{/if}}
                         {{!-- <div class="color"> --}}
-                            <input type="radio" name="color" id="black">
+                            <input type="radio" name="color" id="yellow">
                             <span class="material-icons-sharp">done</span>
-                            <label for="black" >
+                            <label for="yellow" >
                                 <svg>
-                                    <circle cx='25' cy='25' r='20'class="black_circle" ></circle>
+                                    <circle cx='25' cy='25' r='20'class="yellow_circle" ></circle>
                                 </svg>
                             </label>
                         </div>
@@ -258,9 +258,9 @@
             <div class="selected">Επιλέξτε Συσκευή</div>
             <div class="id-entry">
                 
-                <h3>Device Id</h3>
+                <h3>Device Name</h3>
                 <form name="myForm" action="/add-device" method="post">
-                <input type="text" name="tmep" placeholder="Id..." />
+                <input type="text" name="tmep" placeholder="Name..." />
                 <input type="submit" value ="Enter"/>
                 </form>
                 
