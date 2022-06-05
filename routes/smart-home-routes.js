@@ -174,77 +174,12 @@ router.get('/logout',(req,res)=>{
   // req.session.sign
   res.redirect('/')
 })
-//   //12
-// router.get('/success',(req,res)=>{
-//   res.send('hello there')
-// })
 
-// //13 get request with json for device's name
-// router.get('/name_devices',deviceController.NameDevices)
-// //14 get request with json device history weight without limt
-// router.get('/device_weight/:device_id',deviceController.JsonDeviceWeight)
-// //15 return json with history weight for limit
-// router.get('/device_weight/:device_id/limit/:limit',deviceController.JsonDeviceWeightLimit)
-
-
-// /
-
-
-// //post requests--------------------------------
-//   // 1 δουλευει με arduinoo
-// router.post('/handle',(req,res)=>{
-//   console.log(req.body)
-//   //io.emit('message', req.body);
-
-//   res.send(req.body)
-// })
-
-//   //2
-// router.post('/data_plot',deviceController.DataPlot)
-
-//   //3 input new collection data
-// router.post('/add_weight',(request,response)=>{deviceController.AddWeight(io,request,response)})
-// //--------------------------
-
-//   //4 
-// router.post('/change_device_settings',(request,response)=>{deviceController.Change_Device_Setting(io,request,response)})
-
-// router.post('/change_device_settings2',(request,response)=>{deviceController.Change_Device_Setting2(io,request,response)})
-//   //5 close or open the device
-// router.post('/device/:id/change_state',deviceController.ChangeDeviceState)
-
-  //6 post request to login user
-// router.post('/login_user/',passport.authenticate('local', {
-  
-//   successRedirect: "/",
-//   failureRedirect: "/login",
-// }))
-
-  //7 post request for adding new user
-// router.post('/register_user/',deviceController.registerUser)
  router.post('/register_user/',deviceController.registerUser)
 
-// router.post('/register_user/',(req,res)=>{
-//   console.log(req.body)
-//   res.send('ok')
-// })
 
 router.post('/login_user/',deviceController.signUser)
-// router.post('/login_user/', function(request, response) {
-// 	// Capture the input fields
-//   console.log(request.body)
-// 	//let username = request.body.fname;
-// 	//let password = request.body.lname;
-// 	// Ensure the input fields exists and are not empty
-	
-// 				// Authenticate the user
-// 				request.session.loggedin = true;
-// 				//request.session.username = username;
-//         request.session.username = 'hi';
-//         console.log(request.session)
-// 				// Redirect to home page
-// 				response.redirect('/')
-// });
+
 
 exports.routes = router;
 exports.io=io;
