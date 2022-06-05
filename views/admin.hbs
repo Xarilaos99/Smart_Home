@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+      rel="stylesheet">
+
+
+    <link rel="stylesheet" href = "/css/admin.css">
+</head>
+<body>
+    {{#if admin}}
+    <div class="container">
+        <aside>
+            <div class="top">
+                <div class="logo">
+                    <img src="./images/smart-home.png">
+                    <h2>Smart <span class="danger">Home</span></h2>
+                </div>
+                <!-- to evala an theloume na einai responsive -->
+                <div class="close" id="close-btn">
+                    <span class="material-icons-sharp">close</span>
+                </div>
+            </div>
+            <div class="sidebar">
+                <a href="/admin" class="active">
+                    <span class="material-icons-sharp">house</span>
+                    <h3>Homes</h3>
+                </a>
+                <a href="/online">
+                    <span class="material-icons-sharp">group</span>
+                    <h3>Online</h3>
+                </a>
+                <a href="/admin">
+                    <span class="material-icons-sharp">
+                        settings
+                        </span>
+                    <h3>Settings</h3>
+                </a>
+                <a href="/logout">
+                    <span class="material-icons-sharp">logout</span>
+                    <h3>Logout</h3>
+                </a>
+            </div>
+        </aside>
+
+        <!-----------------  END OF ASIDE ---------------->
+        
+        <main>
+            <h1>ADMIN</h1>
+            
+            
+            <div class="insights">
+                <div class="home1">
+                    <div class="top">
+                        <span class="material-icons-sharp">home</span>
+                        <h3>Home1</h3>
+                    </div>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Κατανάλωση</h3>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>
+                                    23.5KW
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        The Last 24 Hours
+                    </small>
+                </div>
+                <!-- END OF HOME! -->
+                <div class="home2" id="home2"  >
+                    <div class="top">
+                        <span class="material-icons-sharp">home</span>
+                        <h3>Home2</h3>
+                    </div>
+                    
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Κατανάλωση</h3>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>
+                                    25.5KW
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        The Last 24 Hours
+                    </small>
+                </div>
+            
+                <div class="home3">
+                    <div class="top">
+                        <span class="material-icons-sharp">home</span>
+                        <h3>Home3</h3>
+                    </div>
+                    
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Κατανάλωση</h3>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx='38' cy='38' r='36'></circle>
+                            </svg>
+                            <div class="number">
+                                <p>
+                                    34.5KW
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">
+                        The Last 24 Hours
+                    </small>
+                </div>
+            </div>
+            <canvas id="chart"></canvas>
+        </main>
+        <!-----------------  END OF ASIDE ---------------->
+        <div class="right">
+            <div class="top">
+                <button id="menu-btn">
+                    <span class="material-icons-sharp">menu</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    {{else}}
+        <p>An admin must <a href="/login">sign in</a></p>
+    {{/if}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.6.0/chart.min.js"
+        integrity="sha512-GMGzUEevhWh8Tc/njS0bDpwgxdCJLQBWG3Z2Ct+JGOpVnEmjvNx6ts4v6A2XJf1HOrtOsfhv3hBKpK9kE5z8AQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="/js/admin.js"></script>
+</body>
+</html>
